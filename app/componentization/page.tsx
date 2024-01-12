@@ -7,6 +7,7 @@ import { FaArrowDownWideShort } from "react-icons/fa6";
 import { FaArrowUpShortWide } from "react-icons/fa6";
 import { Module } from "./types/module";
 import { Section } from "./types/section";
+import { IoMdCloseCircle } from "react-icons/io";
 
 export default function Page() {
   const [ordering, setOrdering] = useState<"asc" | "desc" | "default">(
@@ -89,12 +90,11 @@ export default function Page() {
     open && (
       <div className="rounded-md bg-gray-50 border shadow-md fixed w-[33%] h-[70%] py-2 m-5">
         <div className="text-lg px-3 flex items-center justify-between mb-2">
-          <button
+          <IoMdCloseCircle
             onClick={() => setOpen(!open)}
-            className="bg-green-600 px-1.5 rounded-full w-fit font-bold text-white"
-          >
-            ✖
-          </button>
+            className="text-green-600 hover:cursor-pointer font-bold"
+            size={30}
+          />
           <button onClick={handleOrder} className="mr-3">
             {ordering === "default" && <BsArrowDownUp />}
             {ordering === "desc" && <FaArrowDownWideShort />}
